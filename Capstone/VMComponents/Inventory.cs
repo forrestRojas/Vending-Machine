@@ -25,20 +25,14 @@ namespace Capstone.VMComponents
                     string currentLine = sr.ReadLine();
                     string[] itemInfo = currentLine.Split('|');
 
-                    try
-                    {
-                        VendingMachineProduct vendingMachineProduct = Assembly.GetExecutingAssembly().CreateInstance("Capstone.VMComponents." + itemInfo[itemInfo.Length - 1], true, BindingFlags.Default, null, new string[] { itemInfo[1], itemInfo[2] }, null, null) as VendingMachineProduct;
+                    VendingMachineProduct vendingMachineProduct = Assembly.GetExecutingAssembly().CreateInstance("Capstone.VMComponents." + itemInfo[itemInfo.Length - 1], true, BindingFlags.Default, null, new string[] { itemInfo[1], itemInfo[2] }, null, null) as VendingMachineProduct;
 
-                        if (vendingMachineProduct != null )
-                        {
-                             inventory.Add(itemInfo[0], vendingMachineProduct);
-                        }                      
-                    }
-                    catch(Exception ex)
+                    if (vendingMachineProduct != null )
                     {
-                        Console.Write("Inventory could not fully load.");
-                        Console.Write($"Line number: {i} could not be deserialized.");
-                    }               
+                            inventory.Add(itemInfo[0], vendingMachineProduct);
+                    }          
+                    //Console.Write("Inventory could not fully load.");
+                    //Console.Write($"Line number: {i} could not be deserialized.");             
                     i++;
                 }
             }
@@ -49,6 +43,7 @@ namespace Capstone.VMComponents
         /// </summary>
         /// <param name="inventory">The Machine's inventory that need to populated</param>
         /// <param name="path">Inventory path file</param>
+        /// <remarks>This overload is for testing the code</remarks>
         public void StockMachine(Dictionary<string, VendingMachineProduct> inventory, string path)
         {
             using (StreamReader sr = new StreamReader(path))
@@ -59,20 +54,14 @@ namespace Capstone.VMComponents
                     string currentLine = sr.ReadLine();
                     string[] itemInfo = currentLine.Split('|');
 
-                    try
-                    {
-                        VendingMachineProduct vendingMachineProduct = Assembly.GetExecutingAssembly().CreateInstance("Capstone.VMComponents." + itemInfo[itemInfo.Length - 1], true, BindingFlags.Default, null, new string[] { itemInfo[1], itemInfo[2] }, null, null) as VendingMachineProduct;
+                    VendingMachineProduct vendingMachineProduct = Assembly.GetExecutingAssembly().CreateInstance("Capstone.VMComponents." + itemInfo[itemInfo.Length - 1], true, BindingFlags.Default, null, new string[] { itemInfo[1], itemInfo[2] }, null, null) as VendingMachineProduct;
 
-                        if (vendingMachineProduct != null)
-                        {
-                            inventory.Add(itemInfo[0], vendingMachineProduct);
-                        }
-                    }
-                    catch (Exception ex)
+                    if (vendingMachineProduct != null)
                     {
-                        Console.Write("Inventory could not fully load.");
-                        Console.Write($"Line number: {i} could not be deserialized.");
+                        inventory.Add(itemInfo[0], vendingMachineProduct);
                     }
+                    //Console.Write("Inventory could not fully load.");
+                    //Console.Write($"Line number: {i} could not be deserialized.");
                     i++;
                 }
             }

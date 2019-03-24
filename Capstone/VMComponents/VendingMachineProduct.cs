@@ -37,7 +37,7 @@ namespace Capstone.VMComponents
         }
 
         /// <summary>
-        /// Returns the consumed Message
+        /// Returns the consumed Message.
         /// </summary>
         /// <returns></returns>
         public abstract string ConsumedMessage();

@@ -5,17 +5,17 @@ using System.Text;
 namespace Capstone.VMComponents
 {
     /// <summary>
-    /// Represents a Log Entry
+    /// Represents a Log Entry.
     /// </summary>
     public class LogEntry
     {
         /// <summary>
-        /// The date and time
+        /// The date and time.
         /// </summary>
         readonly string _dateTime = DateTime.Now.ToLocalTime().ToString();
 
         /// <summary>
-        /// Logs the action
+        /// Logs the action.
         /// </summary>
         readonly string _action;
 
@@ -32,9 +32,9 @@ namespace Capstone.VMComponents
         /// <summary>
         /// Creates a log entry with the given information.
         /// </summary>
-        /// <param name="action"></param>
-        /// <param name="userBalance"></param>
-        /// <param name="machineBalance"></param>
+        /// <param name="action">Passes in action.</param>
+        /// <param name="userBalance">Passed in user balance.</param>
+        /// <param name="machineBalance">Passed in machine balance.</param>
         public LogEntry(string action, decimal userBalance, decimal machineBalance)
         {
             this._action = action;
@@ -43,7 +43,7 @@ namespace Capstone.VMComponents
         }
 
         /// <summary>
-        /// Assembles the Log entry.
+        /// Assembles the log entry.
         /// </summary>
         /// <returns></returns>
         public string MakeLogEntry()

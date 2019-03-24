@@ -7,43 +7,42 @@ using DeliveryApp.CLIs;
 namespace Capstone.VMComponents
 {
     /// <summary>
-    /// Represents a Vending Machine
+    /// Represents a Vending Machine.
     /// </summary>
     public class VendingMachine
     {
         /// <summary>
-        /// Creates a log for the machine
+        /// Creates a log for the machine.
         /// </summary>
         private readonly Log _log = new Log();
 
         /// <summary>
-        /// The current balance for the machine
+        /// The current balance for the machine.
         /// </summary>
         public decimal CurrentBalance { get; private set; }
 
         /// <summary>
-        /// A List that represents the products purchased by the customer BEFORE the finish transaction method is called
+        /// A List that represents the products purchased by the customer BEFORE the finish transaction method is called.
         /// </summary>
         protected List<VendingMachineProduct> purchasedProducts = new List<VendingMachineProduct>();
 
         /// <summary>
-        /// Represents the inventory of the machine based on slotCode and product
+        /// Represents the inventory of the machine based on slotCode and product.
         /// </summary>
         public Dictionary<string, VendingMachineProduct> inventory = new Dictionary<string, VendingMachineProduct>();
 
         /// <summary>
-        /// Creates a Vending Machine
+        /// Creates a Vending Machine.
         /// </summary>
         public VendingMachine()
         {
             this.CurrentBalance = 0;
             Inventory inv = new Inventory();
             inv.StockMachine(inventory);
-
         }
 
         /// <summary>
-        /// Creates a Vending Machine based off a custom inventory file
+        /// Creates a Vending Machine based off a custom inventory file.
         /// </summary>
         /// <param name="path">the inventory file path</param>
         public VendingMachine(string path)
@@ -51,7 +50,6 @@ namespace Capstone.VMComponents
             this.CurrentBalance = 0;
             Inventory inv = new Inventory();
             inv.StockMachine(inventory, path);
-
         }
 
         /// <summary>
@@ -139,7 +137,7 @@ namespace Capstone.VMComponents
                 // Adds selected product to customer's inventory.
                 this.purchasedProducts.Add(selectedProduct);
 
-                // At the end of the buy method we reasigned the updated version of that product 
+                // At the end of the buy method we reasigned the updated version of that product.
                 this.inventory[slotCode] = selectedProduct;
             }
             else
@@ -198,9 +196,7 @@ namespace Capstone.VMComponents
                     quantity = "SOLD OUT";
                 } 
                 Console.WriteLine($"{slotCode}|{name, -20}{price:C2}\tQuantity: {quantity}");
-            }
-           
+            }          
         }
     }
-
 }

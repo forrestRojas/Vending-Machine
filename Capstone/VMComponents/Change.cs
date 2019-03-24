@@ -48,14 +48,14 @@ namespace Capstone.VMComponents
         {
             // Rounding erorr fix by adding ()
             int workingBalance = 0;
-            decimal compairingBalance = balance * 100;
+            decimal comparingBalance = balance * 100;
 
             for (int i = 0; i < this._coinValues.Length; i++)
             {
-                while (workingBalance < compairingBalance)
+                while (workingBalance < comparingBalance)
                 {
                     // Fixed when next coin shold be used, 
-                    if ((workingBalance + this._coinValues[i]) > compairingBalance)
+                    if ((workingBalance + this._coinValues[i]) > comparingBalance)
                     {
                         break;
                     }

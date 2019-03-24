@@ -14,7 +14,7 @@ namespace Capstone.VMComponents
         /// The List of Log entery awating to be written to the log file
         /// </summary>
         private readonly List<LogEntry> logList = new List<LogEntry>();
-
+   
         /// <summary>
         /// Creats an instance of a Log
         /// </summary>
